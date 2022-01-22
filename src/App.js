@@ -8,15 +8,18 @@ function App() {
   const [username, setUserName] = useState("");
   const [room, setRoom] = useState("");
 
+  const [showChat, setShowChat] = useState(false);
   const joinRoom = () =>{ // establish connection between user and room 
     // only join a room if have username or room
     if (username!== '' && room !== ''){
       socket.emit("joinRoom", room); //passes this in as data.
     }
+    setShowChat(true);
   }
 
   return (
     <div className="App">
+      {!showChat?(
       <div className ="joinChatContainer">
         <h3>Join Chat</h3>
         <input 
@@ -37,9 +40,11 @@ function App() {
           
           />
         <button onClick={joinRoom}>Join</button>
-
-        <Chat socket={socket} username = {username} room = {room} />
-      </div>
+        </div>
+      )
+      :(
+      <Chat socket={socket} username = {username} room = {room} />
+      )}
     </div>
   );
 }
