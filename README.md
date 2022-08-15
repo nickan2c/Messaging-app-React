@@ -1,3 +1,9 @@
+# React messaging app
+Uses sockets to connect to a room and talk to users in the room. 
+Simple interface, and rooms can have as many users in them. allowing group conversations
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
